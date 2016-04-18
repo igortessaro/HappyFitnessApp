@@ -1,0 +1,28 @@
+/* Empty. Add your own CSS if you like */
+@font-face {
+    font-family: 'Segoe-Print';
+    src: url('../fonts/911Fonts.com_SegoePrint__-_911fonts.com-fonts-oki4.eot') format('embedded-opentype');
+}
+
+/*@font-face {
+    font-family: '911Fonts.com_SegoePrint__-_911fonts.com-fonts-oki4';
+    src: url('../fonts/911Fonts.com_SegoePrint__-_911fonts.com-fonts-oki4.ttf') format('truetype');
+}*/
+.img-init {
+    background-image: url('../img/fitness-training-311490_960_720.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-top: 50px;
+    width: 80%;
+    height: 246px;
+    margin: auto;
+    z-index: 2;
+    position: relative;
+}
+
+.text-tittle {
+    text-align: center;
+    font-family: 'Segoe-Print';
+    font-size: 11px;
+}

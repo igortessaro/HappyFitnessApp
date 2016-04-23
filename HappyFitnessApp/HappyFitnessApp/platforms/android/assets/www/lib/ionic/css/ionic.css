@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*!
  * Copyright 2015 Drifty Co.
  * http://drifty.com/
@@ -3532,7 +3532,8 @@ ion-infinite-scroll {
   .has-tabs.pane,
   .bar-footer.has-tabs.pane {
     bottom: 49px;
-    height: auto; }
+    height: auto;
+  }
 
 .bar-subfooter.has-tabs {
   bottom: 93px; }

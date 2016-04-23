@@ -1,4 +1,4 @@
-/* Empty. Add your own CSS if you like */
+﻿/* Empty. Add your own CSS if you like */
 @font-face {
     font-family: 'Segoe-Print';
     src: url('../fonts/911Fonts.com_SegoePrint__-_911fonts.com-fonts-oki4.eot') format('embedded-opentype');
@@ -8,24 +8,29 @@
     font-family: '911Fonts.com_SegoePrint__-_911fonts.com-fonts-oki4';
     src: url('../fonts/911Fonts.com_SegoePrint__-_911fonts.com-fonts-oki4.ttf') format('truetype');
 }*/
-.text {
+.text-tittle {
     text-align: center;
-    font-size: 300%;
+    font-family: 'Segoe-Print';
+    font-size: 11px;
 }
-.lista {
-    text-decoration: none;
+.teste {
+text-decoration: none;
 }
 .buttonfooter {
     margin-top: 40px;
-    
+    text-align: center;
 }
 .menu{
-    margin:10px;
-    margin-bottom:unset;
+    margin-top: 50px;
+    text-align: center;
 }
 .a , .b , .c , .d{
-    margin-top: 40px;
+margin-top: 40px;
 }
 .listaExercicios{
-    margin-top: 40px;
+margin-top: 40px;
+}
+h1 title{
+    font-family: 'Segoe-Print';
+    text-align: center;
 }

@@ -20,12 +20,14 @@
 
     <!--Controller-->
     <script src="js/controllers/homeController.js"></script>
+    <script src="js/controllers/menuController.js"></script>
     <script src="js/controllers/treinoController.js"></script>
+    <script src="js/controllers/exercicioController.js"></script>
     <!-- your app's js -->
     <script src="js/app.js"></script>
 
 </head>
-<body ng-app="starter">
+<body ng-app="starter" class="platform-android platform-cordova platform-webview">
 
     <ion-nav-bar class="bar-positive nav-title-slide-ios7" align-title="center">
         <ion-nav-back-button class="button-icon ion-arrow-left-c">
@@ -51,19 +53,34 @@
     <script id="menu.html" type="text/ng-template">
         <!-- The title of the ion-view will be shown on the navbar -->
         <ion-view hide-back-button="true" hide-nav-bar="true">
-            <div class="bar bar-header">
+
+            <!-- <div class="bar bar-header">
                 <a class="button ion-chevron-left button-clear button-dark" ui-sref="home"></a>
                 <div class="h1 title">Nome Usuario</div>
-            </div>
-            <ion-content class="padding">
-                <nav class="menu">
-                    <ul>
-                        <li class="a"><a class="button button-full button-dark" ui-sref="treino">Iniciar Treino</a></li>
-                        <li class="b"><a class="button button-full button-dark" ui-sref="menu">Perfil</a></li>
-                        <li class="c"><a class="button button-full button-dark" ui-sref="menu">Historico</a></li>
-                        <li class="d"><a class="button button-full button-dark" ui-sref="menu">Opções</a></li>
-                    </ul>
-                </nav>
+            </div> -->
+            <ion-header-bar align-title="center">
+                <div>
+                    <div class="bar bar-header bar-balanced">
+                        <button class="button icon ion-navicon">Menu</button>
+                        <h1 class="title">Usuario</h1>
+                        <button class="button icon ion-gear-a">Opções</button>
+                    </div>
+                </div>
+
+            </ion-header-bar>
+
+
+            <!-- <div class="item item-divider"></div>-->
+            <ion-content>
+                <div class="list">
+
+                    <center>
+                        <a class="item" ui-sref="treino">Iniciar Treino</a>
+                        <a class="item" ui-sref="#">Perfil</a>
+                        <a class="item" ui-sref="#">Historico</a>
+                    </center>
+
+                </div>
             </ion-content>
         </ion-view>
     </script>
@@ -71,29 +88,74 @@
     <script id="treino.html" type="text/ng-template">
         <!-- The title of the ion-view will be shown on the navbar -->
         <ion-view hide-back-button="true" hide-nav-bar="true">
-            <div class="bar bar-header">
-                <a class="button ion-chevron-left button-clear button-dark" ui-sref="menu"></a>
-                <div class="h1 title">Nome Usuario</div>
-            </div>
+
+            <ion-header-bar align-title="center">
+                <div>
+                    <div class="bar bar-header bar-balanced">
+                        <button class="button ion-chevron-left" ui-sref="menu"></button>
+                        <h1 class="title">Usuario</h1>
+                        <button class="button icon ion-gear-a">Opções</button>
+                    </div>
+                </div>
+
+            </ion-header-bar>
             <ion-content class="padding">
                 <!-- The content of the page -->
                 <nav class="listaExercicios">
                     <div class="item item-avatar" ng-repeat="exercicio in vm.exercicioList">
                         <img src="{{exercicio.Icone}}">
-                        <a class="lista" ui-sref="menu">
+                        <a class="lista" ui-sref="exercicio">
                             <h2>{{exercicio.Nome}}</h2>
                             <p><b>Séries: {{exercicio.QuantidadeSerie}}</b></p>
                             <p><b>Repetições: {{exercicio.QuantidadeRepeticoes}}</b></p>
                         </a>
                     </div>
                 </nav>
-                    <footer class="bar-footer">
-                        <a class="button button-full button-dark" ui-sref="menu">Finalizar</a>
-                    </footer>
-                
             </ion-content>
+            <ion-footer aling-button="center">
+                <div class="bar bar-footer bar-balanced">
+                    <button class="button button-full" ui-sref="menu">Finalizar</button>
+                </div>
+            </ion-footer>
+
         </ion-view>
     </script>
+
+    <script id="exercicio.html" type="text/ng-template">
+        <!-- The title of the ion-view will be shown on the navbar -->
+        <ion-view hide-back-button="true" hide-nav-bar="true">
+
+            <ion-header-bar align-title="center">
+                <div>
+                    <div class="bar bar-header bar-balanced">
+                        <button class="button ion-chevron-left" ui-sref="menu"></button>
+                        <h1 class="title">Usuario</h1>
+                        <button class="button icon ion-gear-a">Opções</button>
+                    </div>
+                </div>
+
+            </ion-header-bar>
+            <ion-content class="padding">
+                <div class="list">
+                    <ion-checkbox ng-repeat="item in devlist" ng-model="item.checked" ng-checked="item.cheked">
+
+                    </ion-checkbox>
+                </div>
+
+            </ion-content>
+            <ion-footer aling-button="center">
+                <div class="bar bar-footer bar-balanced">
+                    <button class="button button-full" ui-sref="menu">Finalizar</button>
+                </div>
+            </ion-footer>
+
+        </ion-view>
+    </script>
+
+
+
+
+
 </body>
 <!--<body ng-app="starter">
     <ion-pane ng-controller="homeController as vm">

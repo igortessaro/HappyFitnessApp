@@ -25,6 +25,7 @@
     <script src="js/controllers/treinoController.js"></script>
     <script src="js/controllers/perfilController.js"></script>
     <script src="js/controllers/historicoController.js"></script>
+    <script src="js/controllers/listaTreinoController.js"></script>
     <script src="js/controllers/exercicioController.js"></script>
     <script src="js/controllers/endTreinoController.js"></script>
 
@@ -33,7 +34,7 @@
     <script src="js/app.js"></script>
 
 </head>
-<body ng-app="starter" class="platform-android platform-cordova platform-webview">
+<body ng-app="starter">
 
     <ion-nav-bar class="bar-positive nav-title-slide-ios7" align-title="center">
         <ion-nav-back-button class="button-icon ion-arrow-left-c">
@@ -44,6 +45,14 @@
     <script id="login.html" type="text/ng-template">
         <!-- The title of the ion-view will be shown on the navbar -->
         <ion-view hide-back-button="true" hide-nav-bar="true">
+            <ion-header-bar align-title="center">
+                <div calls="lista">
+                    <div class="bar bar-header bar-dark">
+                        <button class="button ion-chevron-left" ui-sref="home"></button>
+                        <h1 class="title">Happy Fitness</h1>
+                    </div>
+                </div>
+            </ion-header-bar>
             <ion-content class="padding">
                 <img class="full-image" src="img/fitness-training-311490_960_720.png" style="margin-top:20px;">
                 <div class="list list-inset">
@@ -54,7 +63,7 @@
                         <input type="password" placeholder="Password" ng-model="data.password">
                     </label>
                 </div>
-                <button class="button button-block button-dark" ui-sref="home">Login</button>
+                <button class="button button-block button-dark" ui-sref="menu">Login</button>
             </ion-content>
         </ion-view>
     </script>
@@ -67,9 +76,12 @@
                 <div class="text-tittle">
                     <h1 class="text">{{vm.tittle}}</h1>
                 </div>
-                <footer class="buttonfooter bar-footer">
-                    <button class="button button-block button-dark" ui-sref="menu">Iniciar</button>
-                </footer>
+                <div class="list" style="margin-top:20px;">
+                    <center>
+                        <a class="item" ui-sref="login">Aluno</a>
+                        <a class="item" ui-sref="login">Intrutor</a>
+                    </center>
+                </div>
             </ion-content>
         </ion-view>
     </script>
@@ -80,6 +92,7 @@
             <ion-header-bar align-title="center">
                 <div>
                     <div class="bar bar-header bar-dark">
+                        <button class="button ion-chevron-left" ui-sref="login"></button>
                         <h1 class="title">Usuario</h1>
                     </div>
                 </div>
@@ -87,9 +100,9 @@
             <ion-content>
                 <div class="list">
                     <center>
-                        <a class="item" ui-sref="treino">Iniciar Treino</a>
-                        <a class="item" ui-sref="perfil">Perfil</a>
-                        <a class="item" ui-sref="historico">Historico</a>
+                        <a class="item" ui-sref="listaTreino">Treinos</a>
+                        <a class="item" ui-sref="perfil">Graficos de rendimento</a>
+                        <a class="item" ui-sref="historico">Avaliações Físicas</a>
                     </center>
                 </div>
             </ion-content>
@@ -97,7 +110,6 @@
     </script>
 
     <script id="treino.html" type="text/ng-template">
-        <!-- The title of the ion-view will be shown on the navbar -->
         <ion-view hide-back-button="true" hide-nav-bar="true">
             <ion-header-bar align-title="center">
                 <div calls="lista">
@@ -118,12 +130,12 @@
                             <p><b>Repetições: {{exercicio.QuantidadeRepeticoes}}</b></p>
                         </a>
                     </div>
-                     <div class="bar-dark">
-                          <button class="button button-full" ui-sref="endTreino">Finalizar</button>
+                    <div class="bar-dark">
+                        <button class="button button-full" ui-sref="endTreino">Finalizar</button>
                     </div>
                 </nav>
             </ion-content>
-            <ion-footer aling-button="center">              
+            <ion-footer aling-button="center">
             </ion-footer>
         </ion-view>
     </script>
@@ -150,7 +162,6 @@
                 <p><b>Objetivo:</b></p>
                 <p><b>Tipo de treino:</b></p>
                 <p><b>Instrutor:</b></p>
-
             </ion-content>
         </ion-view>
     </script>
@@ -172,6 +183,31 @@
         </ion-view>
     </script>
 
+    <script id="listaTreino.html" type="text/ng-template">
+        <!-- The title of the ion-view will be shown on the navbar -->
+        <ion-view hide-back-button="true" hide-nav-bar="true">
+            <ion-header-bar align-title="center">
+                <div calls="lista">
+                    <div class="bar bar-header bar-dark">
+                        <button class="button ion-chevron-left" ui-sref="menu"></button>
+                        <h1 class="title">Usuario</h1>
+                    </div>
+                </div>
+            </ion-header-bar>
+            <ion-content>
+                <!-- The content of the page -->
+                <div class="list">
+                    <center>
+                        <a class="item" ui-sref="treino">Treino A</a>
+                        <a class="item" ui-sref="treino">Treino B</a>
+                    </center>
+                </div>
+            </ion-content>
+            <ion-footer aling-button="center">
+            </ion-footer>
+        </ion-view>
+    </script>
+
     <script id="exercicio.html" type="text/ng-template">
         <!-- The title of the ion-view will be shown on the navbar -->
         <ion-view hide-back-button="true" hide-nav-bar="true">
@@ -188,7 +224,10 @@
                 <p><b>Nome:</b></p>
                 <p><b>Séries:</b></p>
                 <p><b>Repetições:</b></p>
-                <p><b>Descrção:</b></p>
+                <p><b>Descrição:</b></p>
+                <label class="item item-input" style="margin-top:20px;">
+                    <input type="text" placeholder="Obs:" ng-model="feedback">
+                </label>
                 <div class="bar-dark">
                     <button class="button button-full" ui-sref="treino">Finalizar</button>
                 </div>
@@ -217,8 +256,5 @@
             </ion-content>
         </ion-view>
     </script>
-
-
-
 </body>
 </html>

@@ -2,12 +2,12 @@ angular.module('starter', ['ionic'])
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
         .state('login', {
-            url: '/',
+            url: '/login',
             templateUrl: 'login.html',
             controller: 'loginController as vm'
         })
         .state('home', {
-            url: '/home',
+            url: '/',
             templateUrl: 'home.html',
             controller: 'homeController as vm'
         })
@@ -31,6 +31,11 @@ angular.module('starter', ['ionic'])
             templateUrl: 'historico.html',
             controller: "historicoController as vm"
         })
+        .state('listaTreino', {
+            url: '/listaTreino',
+            templateUrl: 'listaTreino.html',
+            controller: "listaTreinoController as vm"
+        })
         .state('exercicio', {
             url: '/exercicio',
             templateUrl: 'exercicio.html',
@@ -51,6 +56,7 @@ angular.module('starter', ['ionic'])
     .controller('treinoController', treinoController)
     .controller('perfilController', perfilController)
     .controller('historicoController', historicoController)
+    .controller('listaTreinoController', listaTreinoController)
     .controller('exercicioController', exercicioController)
     .controller('endTreinoController', endTreinoController)
     

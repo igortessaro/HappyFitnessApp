@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/reset.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+    <script src="js/platformOverrides.js"></script>
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!--Controller-->
+    <script src="js/controllers/loginController.js"></script>
+    <script src="js/controllers/homeController.js"></script>
+    <script src="js/controllers/menuController.js"></script>
+    <script src="js/controllers/treinoController.js"></script>
+    <script src="js/controllers/perfilController.js"></script>
+    <script src="js/controllers/historicoController.js"></script>
+    <script src="js/controllers/exercicioController.js"></script>
+    <script src="js/controllers/endTreinoController.js"></script>
+
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+
+</head>
+<body ng-app="starter">
+
+    <ion-nav-bar class="bar-positive nav-title-slide-ios7" align-title="center">
+        <ion-nav-back-button class="button-icon ion-arrow-left-c">
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-nav-view class="slide-left-right"></ion-nav-view>
+
+    <script id="login.html" type="text/ng-template">
+        <!-- The title of the ion-view will be shown on the navbar -->
+        <ion-view hide-back-button="true" hide-nav-bar="true">
+            <ion-content class="padding">
+                <img class="full-image" src="img/fitness-training-311490_960_720.png" style="margin-top:20px;">
+                <div class="list list-inset">
+                    <label class="item item-input">
+                        <input type="text" placeholder="Username" ng-model="data.username">
+                    </label>
+                    <label class="item item-input">
+                        <input type="password" placeholder="Password" ng-model="data.password">
+                    </label>
+                </div>
+                <button class="button button-block button-dark" ui-sref="home">Login</button>
+            </ion-content>
+        </ion-view>
+    </script>
+
+    <script id="home.html" type="text/ng-template">
+        <!-- The title of the ion-view will be shown on the navbar -->
+        <ion-view hide-back-button="true" hide-nav-bar="true">
+            <ion-content class="padding">
+                <img class="full-image" src="img/fitness-training-311490_960_720.png" style="margin-top:20px;">
+                <div class="text-tittle">
+                    <h1 class="text">{{vm.tittle}}</h1>
+                </div>
+                <footer class="buttonfooter bar-footer">
+                    <button class="button button-block button-dark" ui-sref="menu">Iniciar</button>
+                </footer>
+            </ion-content>
+        </ion-view>
+    </script>
+
+    <script id="menu.html" type="text/ng-template">
+        <!-- The title of the ion-view will be shown on the navbar -->
+        <ion-view hide-back-button="true" hide-nav-bar="true">
+            <ion-header-bar align-title="center">
+                <div>
+                    <div class="bar bar-header bar-balanced">
+                        <h1 class="title">Usuario</h1>
+                    </div>
+                </div>
+            </ion-header-bar>
+            <ion-content>
+                <div class="list">
+                    <center>
+                        <a class="item" ui-sref="treino">Iniciar Treino</a>
+                        <a class="item" ui-sref="perfil">Perfil</a>
+                        <a class="item" ui-sref="historico">Historico</a>
+                    </center>
+                </div>
+            </ion-content>
+        </ion-view>
+    </script>
+
+    <script id="treino.html" type="text/ng-template">
+        <!-- The title of the ion-view will be shown on the navbar -->
+        <ion-view hide-back-button="true" hide-nav-bar="true">
+            <ion-header-bar align-title="center">
+                <div calls="lista">
+                    <div class="bar bar-header bar-balanced">
+                        <button class="button ion-chevron-left" ui-sref="menu"></button>
+                        <h1 class="title">Usuario</h1>
+                    </div>
+                </div>
+            </ion-header-bar>
+            <ion-content class="padding">
+                <!-- The content of the page -->
+                <nav class="listaExercicios">
+                    <div class="item item-avatar" ng-repeat="exercicio in vm.exercicioList">
+                        <img src="{{exercicio.Icone}}">
+                        <a class="item" ui-sref="exercicio">
+                            <h2>{{exercicio.Nome}}</h2>
+                            <p><b>Séries: {{exercicio.QuantidadeSerie}}</b></p>
+                            <p><b>Repetições: {{exercicio.QuantidadeRepeticoes}}</b></p>
+                        </a>
+                    </div>
+                     <div class="bar-balanced">
+                          <button class="button button-full" ui-sref="endTreino">Finalizar</button>
+                    </div>
+                </nav>
+            </ion-content>
+            <ion-footer aling-button="center">              
+            </ion-footer>
+        </ion-view>
+    </script>
+
+    <script id="perfil.html" type="text/ng-template">
+        <!-- The title of the ion-view will be shown on the navbar -->
+        <ion-view hide-back-button="true" hide-nav-bar="true">
+            <ion-header-bar align-title="center">
+                <div>
+                    <div class="bar bar-header bar-balanced">
+                        <button class="button ion-chevron-left" ui-sref="menu"></button>
+                        <h1 class="title">Usuario</h1>
+                    </div>
+                </div>
+            </ion-header-bar>
+            <ion-content class="padding">
+                <p><b>Nome:</b></p>
+                <p><b>Idade:</b></p>
+                <p><b>Altura:</b></p>
+                <p><b>Peso atual:</b></p>
+                <p><b>Peso desejado:</b></p>
+                <p><b>Percentual de gordura atual:</b></p>
+                <p><b>Percentual de gordura desejado:</b></p>
+                <p><b>Tipo de treino:</b></p>
+                <p><b>Objetivo:</b></p>
+                <p><b>Instrutor:</b></p>
+
+            </ion-content>
+        </ion-view>
+    </script>
+
+    <script id="historico.html" type="text/ng-template">
+        <!-- The title of the ion-view will be shown on the navbar -->
+        <ion-view hide-back-button="true" hide-nav-bar="true">
+            <ion-header-bar align-title="center">
+                <div>
+                    <div class="bar bar-header bar-balanced">
+                        <button class="button ion-chevron-left" ui-sref="menu"></button>
+                        <h1 class="title">Usuario</h1>
+                    </div>
+                </div>
+            </ion-header-bar>
+            <ion-content class="padding">
+
+            </ion-content>
+        </ion-view>
+    </script>
+
+    <script id="exercicio.html" type="text/ng-template">
+        <!-- The title of the ion-view will be shown on the navbar -->
+        <ion-view hide-back-button="true" hide-nav-bar="true">
+            <ion-header-bar align-title="center">
+                <div>
+                    <div class="bar bar-header bar-balanced">
+                        <button class="button ion-chevron-left" ui-sref="treino"></button>
+                        <h1 class="title">Usuario</h1>
+                    </div>
+                </div>
+            </ion-header-bar>
+            <ion-content class="padding">
+                <img class="full-image" src="img/fitness-training-311490_960_720.png" style="margin-top:20px;">
+                <p><b>Nome:</b></p>
+                <p><b>Séries:</b></p>
+                <p><b>Repetições:</b></p>
+                <p><b>Descrção:</b></p>
+                <div class="bar-balanced">
+                    <button class="button button-full" ui-sref="treino">Finalizar</button>
+                </div>
+            </ion-content>
+        </ion-view>
+    </script>
+
+    <script id="endTreino.html" type="text/ng-template">
+        <!-- The title of the ion-view will be shown on the navbar -->
+        <ion-view hide-back-button="true" hide-nav-bar="true">
+            <ion-header-bar align-title="center">
+                <div>
+                    <div class="bar bar-header bar-balanced">
+                        <button class="button ion-chevron-left" ui-sref="menu"></button>
+                        <h1 class="title">Usuario</h1>
+                    </div>
+                </div>
+            </ion-header-bar>
+            <ion-content class="padding">
+                <img class="full-image" src="img/ionic.png" style="margin-top:20px;">
+                <p><b>PARABÉNS!</b></p>
+                <p><b>Séries realizadas:</b></p>
+                <div class="bar-balanced">
+                    <button class="button button-full" ui-sref="menu">Finalizar</button>
+                </div>
+            </ion-content>
+        </ion-view>
+    </script>
+
+
+
+</body>
+</html>

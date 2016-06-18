@@ -14,8 +14,9 @@
 
             vm.exercicioList.push(exercicio);
                 } */
-
-           var response = $http.get('http://happyfitnessapp.azurewebsites.net/api/Exercicio?pessoaCodigo=1',
+        
+        var response = $http.get('http://happyfitnessapp.azurewebsites.net/api/Exercicio?pessoaCodigo=1',
+        //var response = $http.get('http://localhost:60178/services/MapNat.svc',
                {
                   params: {
                      pessoaCodigo: 10

@@ -1,0 +1,70 @@
+﻿<ion-view hide-back-button="true" hide-nav-bar="true">
+        <ion-header-bar align-title="center" class="bar-dark">
+            <div class="buttons">
+                <button class="button ion-chevron-left" ui-sref="listagemAlunos"></button>
+            </div>
+            <h1 class="title">{{vm.tittle}}</h1>
+            <!--<div class="buttons">
+                <button class="button icon ion-plus-circled"></button>
+            </div>-->
+        </ion-header-bar>
+        <ion-content class="padding">
+            <!--Dados do Aluno-->
+            <div class="list card">
+                <div class="item item-divider">
+                    Dados do aluno
+                </div>
+
+                <a href="#" class="item item-icon-left">
+                    <i class="icon ion-android-done"></i>
+                    Nome: {{vm.aluno.nome}}
+                </a>
+
+                <a href="#" class="item item-icon-left">
+                    <i class="icon ion-android-done"></i>
+                    Idade: {{vm.aluno.idade}}
+                </a>
+
+                <a href="#" class="item item-icon-left">
+                    <i class="icon ion-android-done"></i>
+                    Peso: {{vm.aluno.peso}}kg
+                </a>
+            </div>
+
+            <!--Filters-->
+            <form name="form" id="form" novalidate>
+                <div class="list">
+                    <div class="item item-divider">
+                        Cadastro Treino
+                    </div>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Data Inicio</span>
+                        <input type="date" name="dataInicio" id="dataInicio" placeholder="dd/MM/yyyy" ng-model="vm.model.dataInicio" required>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Data Fim</span>
+                        <input type="date" name="dataFim" id="dataFim" placeholder="dd/MM/yyyy" ng-model="vm.model.dataFim" required>
+                    </label>
+                    <label class="item item-select item-floating-label">
+                        <span class="select-label">Tipo Treino</span>
+                        <select id="tipoTreino" name="tipoTreino" ng-options="tipoTreino.value as tipoTreino.text for tipoTreino in vm.tipoTreinoList" ng-model="vm.model.tipoTreino" required></select>
+                    </label>
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Quantidade Treinos</span>
+                        <input type="number" name="quantidadeTreinos" id="quantidadeTreinos" placeholder="Quantidade de Treinos" ng-model="vm.model.quantidadeTreinos" required maxlength="1">
+                    </label>
+
+                    <div ng-repeat="treino in vm.model.quantidadeTreinos">
+
+                    </div>
+
+                </div>
+                <div class="padding" ng-show="vm.showSummary">
+                    <p style="color:red" ng-repeat="mensagem in vm.mensagemList"><b>{{mensagem}}</b></p>
+                </div>
+                <button class="button button-block button-dark" ng-click="vm.salvarTreino(form)">
+                    Salvar
+                </button>
+            </form>
+    </ion-content>
+</ion-view>

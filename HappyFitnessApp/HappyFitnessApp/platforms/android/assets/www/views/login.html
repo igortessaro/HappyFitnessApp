@@ -1,0 +1,22 @@
+﻿<ion-view hide-back-button="true" hide-nav-bar="true">
+    <ion-content class="padding">
+        <img class="full-image" src="img/fitness-training-311490_960_720.png" style="margin-top:20px;">
+        <div class="text-tittle">
+            <h1 class="text">{{vm.tittle}}</h1>
+        </div>
+        <form id="form" name="form" novalidate>
+            <div class="list">
+                <label class="item item-input">
+                    <input type="text" id="usuario" name="usuario" placeholder="Usuário" ng-model="vm.model.usuario" required form-validate-after>
+                </label>
+                <label class="item item-input">
+                    <input type="password" id="senha" name="senha" placeholder="Senha" ng-model="vm.model.senha" required form-validate-after>
+                </label>
+            </div>
+            <div class="padding" ng-show="vm.showSummary">
+                <p style="color:red" ng-repeat="mensagem in vm.mensagemList"><b>{{mensagem}}</b></p>
+            </div>
+            <button class="button button-block button-dark" ng-click="vm.logar(form)">Login</button>
+        </form>
+    </ion-content>
+</ion-view>

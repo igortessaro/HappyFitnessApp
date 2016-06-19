@@ -15,16 +15,18 @@
 
 .buttonfooter {
     margin-top: 40px;
-    
 }
-.menu{
-    margin:10px;
-    margin-bottom:unset;
+
+.menu {
+    margin: 10px;
+    margin-bottom: unset;
 }
-.a , .b , .c , .d{
+
+.a, .b, .c, .d {
     margin-top: 40px;
 }
-.lista{
+
+.lista {
     text-decoration: none;
     margin-top: 40px;
     margin-bottom: 80px;

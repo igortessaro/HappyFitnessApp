@@ -1,8 +1,30 @@
-﻿function homeController() {
-    var vm = this;
-    vm.tittle = "Happy Fitness";
+﻿angular.module('hfApp')
+    .controller('homeController', homeController);
 
-    vm.inciar = function () {
-        vm.tittle = vm.tittle + ' I';
+homeController.$inject = ['$location'];
+
+function homeController($location) {
+    var vm = this;
+
+    //#region Variaveis
+
+    vm.tittle = "Happy Fitnes";
+
+    //#endregion
+
+    //#region Métodos Publicos
+
+    vm.init = init;
+
+    vm.init();
+
+    //#endregion
+
+    //#region Métodos Privados
+
+    function init() {
+
     };
+
+    //#endregion
 }

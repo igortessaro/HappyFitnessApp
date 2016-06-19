@@ -1,0 +1,21 @@
+﻿<ion-view hide-back-button="true" hide-nav-bar="true">
+    <ion-header-bar align-title="center" class="bar-dark">
+        <div class="buttons">
+            <button class="button ion-chevron-left" ui-sref="home"></button>
+        </div>
+        <h1 class="title">Happy Fitness</h1>
+        <div class="buttons">
+            <button class="button icon ion-plus-circled" ui-sref="cadastroTreino({alunoCodigo: 0})"></button>
+        </div>
+    </ion-header-bar>
+    <ion-content class="padding">
+        <div class="list">
+            <div class="item item-button-right" ng-repeat="aluno in vm.model">
+                {{aluno.nome}}
+                <button class="button button-dark" ui-sref="cadastroTreino({alunoCodigo: aluno.alunoCodigo})">
+                    <i class="icon ion-edit"></i>
+                </button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

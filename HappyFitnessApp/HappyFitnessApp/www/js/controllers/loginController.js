@@ -8,7 +8,7 @@ function loginController($location) {
 
     //#region Variaveis
 
-    vm.tittle = "Happy Fitnes";
+    vm.tittle = "Happy Fitness";
     vm.model = [];
 
     //#endregion

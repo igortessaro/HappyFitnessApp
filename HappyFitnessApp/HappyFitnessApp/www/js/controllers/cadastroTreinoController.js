@@ -18,7 +18,11 @@ function cadastroTreinoController($location, $stateParams) {
     vm.showSummary = false;
     vm.mensagemList = [];
 
+    vm.series = [];
+
     vm.aluno = [];
+
+    vm.treinoDiarioList = [];
 
     //#endregion
 
@@ -26,7 +30,8 @@ function cadastroTreinoController($location, $stateParams) {
 
     vm.init = init;
     vm.salvarTreino = salvarTreino;
-
+    vm.addSerie = addSerie;
+    vm.criarTreinoDiario = criarTreinoDiario;
     vm.init();
 
     //#endregion
@@ -49,6 +54,15 @@ function cadastroTreinoController($location, $stateParams) {
         resetSummaryError();
     };
 
+    function addSerie(treinoDiario, serie) {
+        var s = angular.copy(serie);
+        serie.exercicio = null;
+        serie.repeticao = null;
+        serie.peso = null;
+        serie.tempo = null;
+        treinoDiario.series.push(s);
+    };
+
     function initAlunoMoke() {
         vm.aluno = [];
         vm.aluno.nome = 'Fulano de Tal';
@@ -59,10 +73,11 @@ function cadastroTreinoController($location, $stateParams) {
     function salvarTreino(form) {
         var myForm = form;
 
-        if (!validarForm(myForm)) return;
+        //if (!validarForm(myForm)) return;
 
         alert('treino salvo com sucesso...');
 
+        $location.path('/listagemAlunos');
     };
 
     function validarForm(form) {
@@ -99,6 +114,101 @@ function cadastroTreinoController($location, $stateParams) {
 
     function adicionarMensagem(mensagem) {
         vm.mensagemList.push(mensagem);
+    };
+
+    function criarTreinoDiario(qtd) {
+        if (qtd > 0) {
+            for (var i = 0; i < qtd; i++) {
+                var name = getNomeTreino(i+1);
+
+                var treinoDiario =
+                    {
+                        series: [],
+                        nome: name
+                    };
+
+                vm.treinoDiarioList.push(treinoDiario);
+            }
+        }
+    };
+
+    function getNomeTreino(numero) {
+        var result = 'Treino ';
+
+        switch (numero) {
+            case 1:
+                result = result + 'A';
+                break;
+            case 2:
+                result = result + 'B';
+                break;
+            case 3:
+                result = result + 'C';
+                break;
+            case 4:
+                result = result + 'D';
+                break;
+            case 5:
+                result = result + 'E';
+                break;
+            case 6:
+                result = result + 'F';
+                break;
+            case 7:
+                result = result + 'G';
+                break;
+            case 8:
+                result = result + 'H';
+                break;
+            case 9:
+                result = result + 'I';
+                break;
+            case 10:
+                result = result + 'J';
+                break;
+            case 11:
+                result = result + 'L';
+                break;
+            case 12:
+                result = result + 'M';
+                break;
+            case 13:
+                result = result + 'N';
+                break;
+            case 14:
+                result = result + 'O';
+                break;
+            case 15:
+                result = result + 'P';
+                break;
+            case 16:
+                result = result + 'Q';
+                break;
+            case 17:
+                result = result + 'R';
+                break;
+            case 18:
+                result = result + 'S';
+                break;
+            case 19:
+                result = result + 'T';
+                break;
+            case 20:
+                result = result + 'U';
+                break;
+            case 21:
+                result = result + 'V';
+                break;
+            case 22:
+                result = result + 'X';
+                break;
+            case 23:
+                result = result + 'Z';
+                break;
+            default:
+        }
+
+        return result;
     };
 
     //#endregion
